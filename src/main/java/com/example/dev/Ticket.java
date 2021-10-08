@@ -4,28 +4,36 @@ import java.util.Calendar;
 
 public class Ticket {
 
-    public boolean esMiembro;
-    public double descuento;
-    public Miembro miembro;
+    public String id;
+    public double descuento; //Descuento por dia de la semana
     public Maquina maquina;
-    public Calendar horaIngreso;
-    public Calendar horaSalida;
+    public String estadia; //tiempo de ingreso y salida en un sout
+    public int horaIngreso;
+    public int horaSalida;
+    public int valor;
 
-    public Ticket(boolean esMiembro, double descuento, Miembro miembro, Maquina maquina, Calendar horaIngreso, Calendar horaSalida) {
-        this.esMiembro = esMiembro;
-        this.descuento = descuento;
-        this.miembro = miembro;
+
+    public Ticket(Maquina maquina) {
         this.maquina = maquina;
-        this.horaIngreso = horaIngreso;
-        this.horaSalida = horaSalida;
+        generadorId();
+
     }
 
-    public boolean isEsMiembro() {
-        return esMiembro;
+    public void generadorId() {
+
+        //anteponer una T al inicio
     }
 
-    public void setEsMiembro(boolean esMiembro) {
-        this.esMiembro = esMiembro;
+    public int calcularValor() {
+        return 5;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public double getDescuento() {
@@ -36,14 +44,6 @@ public class Ticket {
         this.descuento = descuento;
     }
 
-    public Miembro getMiembro() {
-        return miembro;
-    }
-
-    public void setMiembro(Miembro miembro) {
-        this.miembro = miembro;
-    }
-
     public Maquina getMaquina() {
         return maquina;
     }
@@ -52,19 +52,35 @@ public class Ticket {
         this.maquina = maquina;
     }
 
-    public Calendar getHoraIngreso() {
+    public String getEstadia() {
+        return estadia;
+    }
+
+    public void setEstadia(String estadia) {
+        this.estadia = estadia;
+    }
+
+    public int getHoraIngreso() {
         return horaIngreso;
     }
 
-    public void setHoraIngreso(Calendar horaIngreso) {
+    public void setHoraIngreso(int horaIngreso) {
         this.horaIngreso = horaIngreso;
     }
 
-    public Calendar getHoraSalida() {
+    public int getHoraSalida() {
         return horaSalida;
     }
 
-    public void setHoraSalida(Calendar horaSalida) {
+    public void setHoraSalida(int horaSalida) {
         this.horaSalida = horaSalida;
+    }
+
+    public int getValor() {
+        return valor;
+    }
+
+    public void setValor(int valor) {
+        this.valor = valor;
     }
 }

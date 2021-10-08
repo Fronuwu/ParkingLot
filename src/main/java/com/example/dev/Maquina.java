@@ -1,21 +1,42 @@
 package com.example.dev;
 
+import java.util.ArrayList;
+
 public class Maquina {
 
-    public int id;
+    public String id;
     public Sucursal sucursal;
     public int conteoTickets;
+    public ArrayList<Ticket> tickets = new ArrayList<>();
 
-    public Maquina(int id, Sucursal sucursal) {
+    public Maquina(String id, Sucursal sucursal) {
         this.id = id;
         this.sucursal = sucursal;
     }
 
-    public int getId() {
+    public void calcularDisponible(){
+        if (conteoTickets==sucursal.getCapacidad()){
+            System.out.println("Estacionamiento repleto");
+        }
+        else {
+            System.out.println("Aun quedan "+(sucursal.getCapacidad()-conteoTickets)+" espacios disponibles");
+        }
+    }
+
+    public void generadorId() {
+//anteponer una M al inicio
+    }
+
+    public void addTicket(Ticket newTicket) {
+        tickets.add(newTicket);
+        conteoTickets+=1;
+    }
+
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -33,5 +54,13 @@ public class Maquina {
 
     public void setConteoTickets(int conteoTickets) {
         this.conteoTickets = conteoTickets;
+    }
+
+    public ArrayList<Ticket> getTickets() {
+        return tickets;
+    }
+
+    public void setTickets(ArrayList<Ticket> tickets) {
+        this.tickets = tickets;
     }
 }
