@@ -1,6 +1,7 @@
 package com.example.dev;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class Maquina {
 
@@ -23,8 +24,23 @@ public class Maquina {
         }
     }
 
-    public void generadorId() {
-//anteponer una M al inicio
+    public static String Gen_Id_Maquina(){
+        String mayus = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        String minus = mayus.toLowerCase(Locale.ROOT);
+        String nums = "0123456789";
+        String alphanums = mayus+minus+nums;
+
+        StringBuilder contra = new StringBuilder(12);
+
+
+        contra.append("M-");
+
+        int i;
+        for (i=2; i<12;i++){
+            contra.append(alphanums.charAt((int)(Math.random()*alphanums.length())));
+        }
+        System.out.println(contra.toString());
+        return contra.toString();
     }
 
     public void addTicket(Ticket newTicket) {

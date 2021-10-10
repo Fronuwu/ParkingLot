@@ -1,6 +1,7 @@
 package com.example.dev;
 
 import java.util.Calendar;
+import java.util.Locale;
 
 public class Ticket {
 
@@ -15,13 +16,26 @@ public class Ticket {
 
     public Ticket(Maquina maquina) {
         this.maquina = maquina;
-        generadorId();
+        this.id = Gen_Id_Ticket();
 
     }
 
-    public void generadorId() {
+    public static String Gen_Id_Ticket(){
+        String mayus = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        String minus = mayus.toLowerCase(Locale.ROOT);
+        String nums = "0123456789";
+        String alphanums = mayus+minus+nums;
 
-        //anteponer una T al inicio
+        StringBuilder contra = new StringBuilder(8);
+
+        contra.append("T-"); //i=2 then alfa
+
+        int i;
+        for (i=2; i<8;i++){
+            contra.append(alphanums.charAt((int)(Math.random()*alphanums.length())));
+        }
+
+        return contra.toString();
     }
 
     public int calcularValor() {

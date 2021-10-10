@@ -1,6 +1,7 @@
 package com.example.dev;
 
 import java.util.Calendar;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Main {
@@ -9,6 +10,7 @@ public class Main {
     public static void main(String[] args) {
         //Calendar cal = Calendar.getInstance();
         //System.out.println(cal.getTime());
+
 
         //Instanciar una sucursal:
         Sucursal temuco = new Sucursal(60, "Cede", "Temuco", "ST-01");
@@ -48,6 +50,7 @@ public class Main {
 
             System.out.println("**TARJETA ESCANEADA EXITOSAMENTE**");
             //getTime(saber cuando se escanea la entrada)
+
         } else if (opcion == 2) { //NO MIEMBRO
 
             Ticket t = new Ticket(maquinaTemuco);
@@ -57,9 +60,8 @@ public class Main {
         }
 
         System.out.println(maquinaTemuco.getConteoTickets());
-
-
-
     }
+
+
 
 }
